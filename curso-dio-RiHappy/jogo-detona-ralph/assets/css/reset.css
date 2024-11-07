@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    /*tamanho da caixa, define o tamanho de uma borda a outra*/
+    box-sizing: border-box;
+    /* font-family: "Bebas Neue", sans-serif; */
+    font-family: "Press Start 2P", cursive;
+    
+}
