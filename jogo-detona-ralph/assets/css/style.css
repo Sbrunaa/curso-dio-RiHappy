@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-image: url(../imagens/wall.png);
+    
 }
 
 .menu{
@@ -12,24 +14,40 @@
     width: 100%;
     background-color: #000000;
     color: #ffffff;
+    border-bottom: 5px solid #ffd700;
 }
 
-.menu-time h2,.menu-score h2 {
-    color:#ff0000; /* Define a cor do texto */
+.menu-time h2:nth-child(1),
+.menu-score h2:nth-child(1){
+    color:#8b0000; /* Define a cor do texto */
     
 }
-
+.menu-time h2:nth-child(2),
+.menu-score h2:nth-child(2){
+    margin-top: 1rem;
+}
 .painel{
     margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ff0000;
+    
 }
 
 .square{
     height: 150px;
     width: 150px;
-    border: 1px solid #000000;
-    background-color: #8b0000;
+    border: 1px solid #8b0000;
+    background-color: #000000;
+}
+
+.enemy{
+    background-image: url(../imagens/ralph.png);
+    background-size: cover;
+}
+
+.menu-lives{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
