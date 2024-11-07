@@ -11,6 +11,7 @@ const state ={
         hitPosition: 0,
         result: 0,
         curretTime: 60,
+        curretLife: 3,
     },
     actions: {
         timeId: setInterval(randomSquare, 1000),
@@ -25,8 +26,34 @@ function countDown(){
     if(state.values.curretTime <= 0){
         clearInterval(state.actions.countDownTimerId);
         clearInterval(state.actions.timeId);
-        alert("Game Over! O seu resultado foi: " + state.values.result);
+        
+        // Reduz uma vida
+        state.values.curretLife--;
+        state.view.lifes.textContent = `x${state.values.curretLife}`;
+        
+        if (state.values.curretLife > 0) {
+            // Pergunta se o usuário deseja jogar novamente
+            let playAgain = confirm("O tempo acabou! Você quer jogar novamente?");
+            if (playAgain) {
+                // Reinicia o jogo
+                resetGame();
+            } else {
+                alert("Fim de jogo! O seu resultado foi: " + state.values.result);
+            }
+        } else {
+            alert("Game Over! Suas vidas acabaram. O seu resultado foi: " + state.values.result);
+        }
     }
+}
+
+// Função para reiniciar o jogo com as vidas restantes
+function resetGame() {
+    state.values.curretTime = 60;
+    state.view.timeLeft.textContent = state.values.curretTime;
+    
+    // Reinicia o temporizador e os inimigos
+    state.actions.countDownTimerId = setInterval(countDown, 1000);
+    state.actions.timeId = setInterval(randomSquare, state.values.gameVelocity);
 }
 
 function playSound(audioName){
