@@ -4,6 +4,7 @@ const state ={
         enemy: document.querySelector(".enemy"),
         timeLeft: document.querySelector("#time-left"),
         score: document.querySelector("#score"),
+        lifes: document.querySelector("#lifes"),
     },
     values: {
         gameVelocity: 1000,
