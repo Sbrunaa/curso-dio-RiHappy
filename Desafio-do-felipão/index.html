@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style/style.css">
+    <title>Desafio felipão</title>
+</head>
+<body>
+    <div class="dados" >
+        <label for="nomeHeroi">Nome do Heroi: </label><input type="text" id="nomeHeroi" name="nome"/>
+        <br>
+        <br>
+        <label for="totalXp">Total de XP: </label><input type="number"id="totalXp" name="xp" min="0"  max="10001" />
+
+        <button type="submit" onclick="classificacao()">Enviar</button>
+    </div>
+    <div id="resultado"></div> 
+    <script src="src/script/index.js"></script>
+</body>
+</html>
