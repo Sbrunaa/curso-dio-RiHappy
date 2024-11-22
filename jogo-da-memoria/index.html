@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style/resert.css">
+    <link rel="stylesheet" href="src/style/main.css">
+    <title>Jogo da Memória</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>JOGO DA MAMÓRIA</h2>
+        <div class="game">
+
+        </div>
+        <button class="resert" onclick="window.location.reload()">RESERT GAME</button>
+        <button class="show-ranking" onclick="openRankingModal()">Ranking</button>
+
+    </div>
+
+    <!-- Modal para mensagem de vitória -->
+    <div id="victory-modal" class="modal">
+        <div class="modal-content">
+            <h3>Parabéns!</h3>
+            <p id="victory-message"></p>
+            <button onclick="closeVictoryModal()">Fechar</button>
+        </div>
+    </div>
+
+
+
+    <!-- Modal para inserir o nome -->
+    <div id="player-modal" class="modal">
+        <div class="modal-content">
+            <h3>Digite seu Nome</h3>
+            <input type="text" id="player-name" placeholder="Seu Nome">
+            <button onclick="startGame()">Iniciar</button>
+        </div>
+    </div>
+
+    <!-- Modal para exibir o ranking -->
+    <div id="ranking-modal" class="modal">
+        <div class="modal-content">
+            <h3>Ranking</h3>
+            <ol id="ranking-list"></ol>
+            <button onclick="closeRankingModal()">Fechar</button>
+        </div>
+    </div>
+    <script src="src/scripts/engine.js" defer></script>
+</body>
+
+</html>
