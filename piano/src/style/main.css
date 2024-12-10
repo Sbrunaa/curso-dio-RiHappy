@@ -1,41 +1,51 @@
-body{
+body {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     background-color: #e3f2fd;
     color: #fff;
+    margin: 0; /* Remove margens para evitar problemas de deslocamento em dispositivos menores */
 }
-.container{
-    width: 780px;
+
+.container {
+    width: 90%; /* Ajuste flexível para telas menores */
+    max-width: 780px;
     border-radius: 20px;
-    padding: 35px 40px;
+    padding: 20px; /* Reduzido para melhor ajuste em telas pequenas */
     background-color: black;
 }
 
-.container header{
+.container header {
     color: rgba(255, 255, 255, 0.89);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap; /* Permite que os itens se organizem em várias linhas */
 }
 
-h2{
+h2 {
     font-size: 1.6rem;
+    text-align: center; /* Centraliza para telas menores */
 }
-header .column{
+
+header .column {
     display: flex;
     align-items: center;
+    flex-wrap: wrap; /* Ajusta elementos em várias linhas */
 }
-header .column span{
+
+header .column span {
     font-weight: 500;
     margin-right: 15px;
     font-size: 1.19rem;
 }
-.volume-slider input{
+
+.volume-slider input {
     accent-color: #fff;
 }
-.keys-check input{
+
+.keys-check input {
     width: 60px;
     height: 30px;
     appearance: none;
@@ -44,7 +54,8 @@ header .column span{
     cursor: pointer;
     position: relative;
 }
-.keys-check input::before{
+
+.keys-check input::before {
     content: "";
     height: 20px;
     width: 20px;
@@ -54,57 +65,114 @@ header .column span{
     border-radius: inherit;
     position: absolute;
     transform: translateY(-50%);
-    transition: al 0.3s ease;
+    transition: all 0.3s ease;
 }
-.keys-check input:checked::before{
+
+.keys-check input:checked::before {
     left: 2.1rem;
     background-color: #ffffff;
 }
-.piano-keys{
+
+.piano-keys {
     display: flex;
-    margin-top: 40px;
+    margin-top: 20px; /* Reduzido para melhor ajuste em telas pequenas */
+    flex-wrap: wrap; /* Permite que as teclas se reorganizem em telas menores */
+    justify-content: center;
 }
-.piano-keys .key{
+
+.piano-keys .key {
     cursor: pointer;
     user-select: none;
     list-style: none;
     position: relative;
     text-transform: uppercase;
 }
-.piano-keys .white{
-    width: 70px;
-    height: 230px;
+
+.piano-keys .white {
+    width: 60px; /* Reduzido para melhor ajuste em telas menores */
+    height: 200px; /* Reduzido para manter proporção */
     border: 1px solid black;
     color: black;
     border-radius: 8px;
     background: linear-gradient(#fff 96%, #eee 4%);
 }
-.piano-keys .black{
-    width: 44px;
-    height: 140px;
-    margin: 0 -22px 0 -22px;
+
+.piano-keys .black {
+    width: 38px; /* Reduzido para acompanhar proporções */
+    height: 120px;
+    margin: 0 -19px 0 -19px;
     z-index: 2;
     border: 1px solid black;
     color: white;
     border-radius: 0 0 5px 5px;
     background: linear-gradient(#333, #000);
 }
-.piano-keys span{
-    position:absolute;
-    bottom: 20px;
+
+.piano-keys span {
+    position: absolute;
+    bottom: 10px; /* Ajustado para visibilidade em telas menores */
     width: 100%;
     text-align: center;
-    font-size: 1.13rem;
-}
-.piano-keys .white.active{
-    box-shadow: inset -5px 5px 10px rgba(0,0,0,0.2);
-    background: linear-gradient(to bottom #fff 0%, #eee 100%);
-}
-.piano-keys .black.active{
-    box-shadow: inset -5px 5px 10px rgba(255,255,255,0.1);
-    background: linear-gradient(to bottom #000, #434343);
+    font-size: 1rem; /* Reduzido para melhor ajuste */
 }
 
-.piano-keys .key.hide span{
+.piano-keys .white.active {
+    box-shadow: inset -5px 5px 10px rgba(0,0,0,0.2);
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+}
+
+.piano-keys .black.active {
+    box-shadow: inset -5px 5px 10px rgba(255,255,255,0.1);
+    background: linear-gradient(to bottom, #000, #434343);
+}
+
+.piano-keys .key.hide span {
     display: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .piano-keys .white {
+        width: 50px; /* Ajuste para dispositivos menores */
+        height: 150px;
+    }
+
+    .piano-keys .black {
+        width: 30px;
+        height: 100px;
+        margin: 0 -15px;
+    }
+
+    header .column span {
+        font-size: 1rem; /* Reduzido para evitar quebras */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.2rem; /* Ajuste para telas bem pequenas */
+    }
+
+    header .column {
+        justify-content: center;
+    }
+
+    .piano-keys .white {
+        width: 40px;
+        height: 120px;
+    }
+
+    .piano-keys .black {
+        width: 25px;
+        height: 80px;
+        margin: 0 -12px;
+    }
+
+    header .column span {
+        font-size: 0.9rem;
+    }
 }
