@@ -37,14 +37,26 @@ body::before{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    perspective: 3000px;
 }
 .card{
     border: 0.5rem solid white;
-    width: calc(100% / 3 - 8%);
+    width: calc(100vw / 3 -10%);
     height: 70vh;
-    position: relative;
+    position: absolute;
     transition: filter .5s ease-in-out;
 }
+
+.card:nth-child(1){
+    transform: rotateY(0deg) translateZ(50vw);
+}
+.card:nth-child(2){
+    transform: rotateY(120deg) translateZ(50vw);
+}
+.card:nth-child(3){
+    transform: rotateY(240deg) translateZ(50vw);
+}
+
 .card_background{
     width: 100%;
     height: 100%;
@@ -70,11 +82,13 @@ body::before{
     transition: bottom 1s ease-in-out;
 }
 .controller{
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
+    bottom: 1.5rem;
+    width: 100%;
 }
 .controller_button{
     display: flex;
@@ -102,8 +116,8 @@ body::before{
 }
 
 .controller_button--active{
-    color: var(--primary-color);
     background-color: white;
+    color: var(--primary-color);
     border: 3px solid var(--primary-color);
     outline: 2px solid white;
 }
@@ -146,4 +160,11 @@ body[id^="spider-man-"] .card:not(.card--hovered){
 
 .card--hovered .card_title{
     bottom: 50%;
+}
+.cards-carousel{
+    display: flex;
+    justify-content: center;
+    width: calc(100vw / 3 - 10%);
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease-in;
 }
