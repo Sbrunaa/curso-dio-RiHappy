@@ -101,6 +101,12 @@ body::before{
     margin: 0 3.75rem;
 }
 
+.controller_button--active{
+    color: var(--primary-color);
+    background-color: white;
+    border: 3px solid var(--primary-color);
+    outline: 2px solid white;
+}
 .controller_line{
     background-color: white;
     width: 50%;
